@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisconsin Card Sorting Task</title>
+    <link rel="stylesheet" href="../css/wcst_task.css"> <!-- Ensure correct path to your CSS -->
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Wisconsin Card Sorting Task</h1>
+    </header>
+
+    <!-- Task Description Section -->
+    <section class="task-description">
+        <h2>Task Description</h2>
+        <p><strong>Definition:</strong> The Wisconsin Card Sorting Task (WCST) is used to measure cognitive flexibility and executive functioning. Participants must match cards according to changing rules, such as color, shape, or number.</p>
+        <p><strong>Instructions:</strong> Focus on the target card displayed at the top. Select one of the choice cards that match the hidden rule. The rule may change after several correct responses, so stay alert!</p>
+        <p>Press the 'Start Task' button below to begin. After completing the task, your results will be displayed.</p>
+    </section>
+
+    <!-- Task Container -->
+    <div id="task-container">
+        <!-- Start Button -->
+        <div id="start-button-container">
+            <button id="start-btn">Start Task</button>
+        </div>
+
+        <!-- Card Display Area -->
+        <div id="card-display" class="hidden">
+            <div id="target-card" class="card">Target Card</div>
+            <div class="choice-cards">
+                <div class="card" data-index="0">Choice 1</div>
+                <div class="card" data-index="1">Choice 2</div>
+                <div class="card" data-index="2">Choice 3</div>
+                <div class="card" data-index="3">Choice 4</div>
+            </div>
+        </div>
+
+        <!-- Feedback Display -->
+        <div id="feedback" class="hidden">
+            <p id="feedback-message"></p>
+        </div>
+
+        <!-- Results Display -->
+        <div id="results" class="hidden">
+            <h2>Results</h2>
+            <p id="total-correct"></p>
+            <p id="total-incorrect"></p>
+            <p id="rule-changes"></p>
+            <button id="reset-btn">Reset Task</button>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Created by [Your Name]</p>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="../js/wcst_task.js"></script> <!-- Ensure correct path to your JS -->
+</body>
+</html>
