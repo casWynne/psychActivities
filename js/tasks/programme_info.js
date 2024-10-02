@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render Details Function (Reusable for Programme and Module)
     function renderDetails(targetElement, details) {
         console.log("Rendering Details for Target Element:", targetElement.id, details); // Log details being rendered
-        targetElement.innerHTML = ''; // Clear existing content
+        // targetElement.innerHTML = ''; // Clear existing content
         details.forEach(detail => {
             if (detail.type === 'header') {
                 const header = document.createElement('h3');
