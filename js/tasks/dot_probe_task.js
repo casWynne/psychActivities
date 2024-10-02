@@ -16,12 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let acceptingResponses = false; // Flag to control key press handling
 
     // Stimuli variables
-    const stimuliPairs = [
-        { left: 'cat.png', right: 'chair.png' },
-        { left: 'dog.png', right: 'lamp.png' },
-        { left: 'bird.png', right: 'book.png' },
-        { left: 'fish.png', right: 'cup.png' }
-    ];
+
+    const cakeImages = ['cake1.jpg', 'cake2.jpg', 'cake3.jpg', 'cake4.jpg'];
+    const snakeImages = ['snake1.jpg', 'snake2.jpg', 'snake3.jpg', 'snake4.jpg'];
+    let cakeReactionTimes = []; // Store reaction times when the dot appears after the cake
+    let snakeReactionTimes = []; // Store reaction times when the dot appears after the snake
+
+
     const dotSide = ['left', 'right']; // Possible sides for dot
     const fixationDuration = 500; // Fixation cross duration in ms
     const stimuliDuration = 1000; // Duration for stimuli in ms
@@ -55,26 +56,39 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-    // Function to show stimuli
     function showStimuli() {
-        const stimuli = stimuliPairs[Math.floor(Math.random() * stimuliPairs.length)]; // Random stimuli pair
+        // Randomly select a cake and a snake image
+        const cakeImage = cakeImages[Math.floor(Math.random() * cakeImages.length)];
+        const snakeImage = snakeImages[Math.floor(Math.random() * snakeImages.length)];
+
+        // Randomly assign the cake and snake to either the left or right side
+        const stimuliLeftRight = Math.random() < 0.5 ? { left: cakeImage, right: snakeImage } : { left: snakeImage, right: cakeImage };
+
         dotDisplay.innerHTML = `
             <div class="dot-section left">
-                <img src="../assets/${stimuli.left}" alt="Left Stimulus" class="stimulus-img">
+                <img src="../assets/${stimuliLeftRight.left}" alt="Left Stimulus" class="stimulus-img">
             </div>
             <div class="dot-section middle">
             </div>
             <div class="dot-section right">
-                <img src="../assets/${stimuli.right}" alt="Right Stimulus" class="stimulus-img">
+                <img src="../assets/${stimuliLeftRight.right}" alt="Right Stimulus" class="stimulus-img">
             </div>
         `;
-        dotDisplay.dataset.correctSide = ''; // Clear previous correct side
+
+        // Store the position of the cake (left or right) for the dot placement
+        dotDisplay.dataset.cakeSide = stimuliLeftRight.left === cakeImage ? 'left' : 'right';
     }
+
 
     // Function to show dot
     function showDot() {
-        const side = dotSide[Math.floor(Math.random() * dotSide.length)]; // Random side for dot
+        // Randomly decide whether the dot should appear on the cake or the snake side
+        const dotAfterCake = Math.random() < 0.5; // 50% chance of dot appearing after cake
+    
+        const side = dotAfterCake ? dotDisplay.dataset.cakeSide : (dotDisplay.dataset.cakeSide === 'left' ? 'right' : 'left'); // Dot appears on the same side as cake or opposite side
         const dotPositionClass = side === 'left' ? 'left' : 'right'; // Determine position class
+    
+        // Display the dot
         dotDisplay.innerHTML = `
             <div class="dot-section left">
                 ${side === 'left' ? '<div class="dot">•</div>' : ''}
@@ -86,39 +100,51 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
         dotDisplay.dataset.correctSide = side; // Set the correct side for response checking
+        dotDisplay.dataset.dotAfterCake = dotAfterCake; // Store whether the dot was after cake or snake
         startTime = new Date().getTime(); // Start reaction time measurement
         acceptingResponses = true; // Enable response handling after dot is shown
     }
+    
 
-    // Function to handle user response
     function handleResponse(event) {
         if (!acceptingResponses) return; // Ignore key presses if not accepting responses
-
+    
         if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
             const correctKey = dotDisplay.dataset.correctSide === 'left' ? 'ArrowLeft' : 'ArrowRight';
             const reactionTime = new Date().getTime() - startTime; // Measure reaction time
-
+    
             if (event.key === correctKey) {
                 correctResponses++; // Count correct responses
-                reactionTimes.push(reactionTime); // Save reaction time
+    
+                // Track reaction time based on whether the dot appeared after cake or snake
+                if (dotDisplay.dataset.dotAfterCake === 'true') {
+                    cakeReactionTimes.push(reactionTime); // Dot after cake
+                } else {
+                    snakeReactionTimes.push(reactionTime); // Dot after snake
+                }
             }
-
+    
             currentTrial++; // Move to the next trial
             generateTrial(); // Start the next trial
         }
     }
+    
 
-    // Function to display results
     function displayResults() {
         dotDisplay.textContent = ''; // Clear fixation cross when task ends
         dotDisplay.classList.add('hidden'); // Hide dot display
         resultsDisplay.classList.remove('hidden'); // Show results
-
-        // Calculate average reaction time
-        const averageRT = reactionTimes.length ? (reactionTimes.reduce((a, b) => a + b, 0) / reactionTimes.length).toFixed(2) : 'N/A';
+    
+        // Calculate average reaction times for cake and snake trials
+        const averageCakeRT = cakeReactionTimes.length ? (cakeReactionTimes.reduce((a, b) => a + b, 0) / cakeReactionTimes.length).toFixed(2) : 'N/A';
+        const averageSnakeRT = snakeReactionTimes.length ? (snakeReactionTimes.reduce((a, b) => a + b, 0) / snakeReactionTimes.length).toFixed(2) : 'N/A';
+    
         scoreDisplay.textContent = `Total Correct Responses: ${correctResponses} / ${totalTrials}`;
-        averageRTDisplay.textContent = `Average Reaction Time: ${averageRT} ms`;
-
+        averageRTDisplay.innerHTML = `
+            Average Reaction Time for Cake: ${averageCakeRT} ms<br>
+            Average Reaction Time for Snake: ${averageSnakeRT} ms
+        `;
+    
         // Display feedback
         let feedbackMessage = '';
         if (correctResponses >= 15) {
@@ -128,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         feedbackDisplay.textContent = feedbackMessage;
     }
+    
 
     // Function to start the task
     function startTask() {
