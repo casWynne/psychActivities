@@ -138,14 +138,34 @@ function resetTask() {
     const resetButton = document.getElementById('reset-button');
     resetButton.style.display = 'none';
 
-    // Clear the feedback message
+    // Remove the headers (Target Card, Cards Choices, and Score)
+    const taskContainer = document.getElementById('task-container');
+    
+    const targetHeader = taskContainer.querySelector('h3:nth-of-type(1)');
+    const choiceHeader = taskContainer.querySelector('h3:nth-of-type(2)');
+    const scoreContainer = document.getElementById('score');
+    
+    if (targetHeader) taskContainer.removeChild(targetHeader);
+    if (choiceHeader) taskContainer.removeChild(choiceHeader);
+    if (scoreContainer) taskContainer.removeChild(scoreContainer);
+
+    // Hide the target card and choice cards
+    const targetContainer = document.getElementById('target-card');
+    const choiceContainer = document.getElementById('choice-cards');
+    targetContainer.innerHTML = '';
+    choiceContainer.innerHTML = '';
+
+    // Hide feedback
     const feedbackContainer = document.getElementById('feedback');
     feedbackContainer.style.visibility = 'hidden';
     feedbackContainer.textContent = '';
 
-    // Start the task again
-    startTrial(currentDeck);
+    // Show the start button again
+    const startButton = document.getElementById('start-button');
+    startButton.style.display = 'block';
 }
+
+
 
 // Function to initialize a new trial
 let currentDeck;
@@ -228,11 +248,44 @@ function startTrial(deck) {
     });
 }
 
-// Fetch the JSON file and create cards
-fetch('../data/cards.json')
-    .then(response => response.json())
-    .then(data => {
-        const cardDeck = data.map(cardData => new Card(cardData.number, cardData.shape, cardData.color));
-        startTrial(cardDeck); // Start the first trial
-    })
-    .catch(error => console.error('Error loading cards:', error));
+let playCount = 0;
+
+function startTask() {
+    playCount++; // Increment play count
+    document.getElementById('play-count').textContent = playCount; // Update the displayed play count
+    
+    // Hide the start button
+    const startButton = document.getElementById('start-button');
+    startButton.style.display = 'none';
+
+    // Dynamically create and display the Target Card and Cards Choices headers
+    const targetContainer = document.getElementById('target-card');
+    const choiceContainer = document.getElementById('choice-cards');
+    
+    const taskContainer = document.getElementById('task-container');
+    
+    // Create and add the Target Card header
+    const targetHeader = document.createElement('h3');
+    targetHeader.textContent = 'Target Card';
+    taskContainer.insertBefore(targetHeader, targetContainer);
+
+    // Create and add the Cards Choices header
+    const choiceHeader = document.createElement('h3');
+    choiceHeader.textContent = 'Card Choices';
+    taskContainer.insertBefore(choiceHeader, choiceContainer);
+
+    // Create and add the Score section
+    const scoreContainer = document.createElement('div');
+    scoreContainer.id = 'score';
+    scoreContainer.textContent = `Score: ${correctAnswers}`;
+    taskContainer.insertBefore(scoreContainer, targetHeader);
+
+    // Start the first trial
+    fetch('../data/cards.json')
+        .then(response => response.json())
+        .then(data => {
+            const cardDeck = data.map(cardData => new Card(cardData.number, cardData.shape, cardData.color));
+            startTrial(cardDeck); // Start the first trial
+        })
+        .catch(error => console.error('Error loading cards:', error));
+}
