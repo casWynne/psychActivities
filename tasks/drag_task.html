@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Drag and Drop Timeline Activity</title>
+  <link rel="stylesheet" href="../css/drag_task.css">
+</head>
+<body>
+
+<!-- Storage Area -->
+<div id="storage-container">
+    <h2>Storage Area</h2>
+    <div id="items-container">
+      <div class="draggable-item" draggable="true" data-number="2">
+        <p>Task B</p>
+      </div>
+      <div class="draggable-item" draggable="true" data-number="0">
+        <p>Task A</p>
+      </div>
+      <div class="draggable-item" draggable="true" data-number="3">
+        <p>Task C</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div id="timeline-container">
+    <div class="timeline-slot" data-number="0" data-label="Start"></div>
+    <div class="timeline-slot" data-number="1" data-label="Step One"></div>
+    <div class="timeline-slot" data-number="2" data-label="Step Two"></div>
+    <div class="timeline-slot" data-number="3" data-label="Step Three"></div>
+    <div class="timeline-slot" data-number="4" data-label="Finish"></div>
+  </div>
+
+
+  <script src="../js/tasks/drag_task.js"></script>
+</body>
+</html>
