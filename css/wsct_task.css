@@ -22,6 +22,9 @@ header h1 {
 
 /* Task Container Styling */
 #task-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: 800px; /* Increased width for better layout */
     min-height: 200px; /* Increased height to better fit the task area */
     margin: 50px auto;
@@ -31,7 +34,12 @@ header h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden; /* Hide overflow to keep content within the box */
     position: relative; /* Relative positioning for better control */
+    justify-content: center;
+
 }
+
+/* Center the button container */
+
 
 .task-description {
     max-width: 800px; /* Limit the width for better readability */
@@ -184,4 +192,29 @@ footer {
     background-color: #3b7ea1; /* Match header color */
     color: #ffffff;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Center the button inside the container */
+#start-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #28a745; /* Green background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px; /* Space above the button */
+    display: inline-block; /* Ensure the button is treated like an inline element */
+}
+
+#start-button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+#start-button:active {
+    background-color: #1e7e34; /* Even darker green when pressed */
+    transform: scale(0.95); /* Slight shrink when clicked */
 }
