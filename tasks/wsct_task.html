@@ -21,12 +21,10 @@
         <p> </p>
     </section>
     <div id="task-container">
-        <div id="score"></div> <!-- Score Display -->
-        <h3>Target Card</h3>
+        <button id="start-button" onclick="startTask()">Start Task</button>
         <div id="target-card">
         </div> <!-- Target Card Container -->
         <div id="feedback"></div> <!-- Feedback Display -->
-        <h3>Cards Choices</h3>
         <div id="choice-cards"></div> <!-- Choice Cards Container -->
         <button id="reset-button" onclick="resetTask()">Reset Task</button> <!-- Reset Button -->
     </div>
@@ -36,7 +34,6 @@
     </section>
     <footer>
         <p>Created by Caspar Wynne</p>
-        <button id="back-button" class="hidden" onclick="window.location.href='../index.html'">Back to Admin</button>
         <div id="play-counter">Plays: <span id="play-count">0</span></div>
     </footer>
 
