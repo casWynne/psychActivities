@@ -116,7 +116,6 @@
             "type": "header",
             "content": "Programme Overview"
           },
-          ,
           {
             "type": "image",
             "src": "assets/child-dev.jpg",
