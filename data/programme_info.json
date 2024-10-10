@@ -116,22 +116,29 @@
             "type": "header",
             "content": "Programme Overview"
           },
-          {
-            "type": "text",
-            "content": "This programme provides an in-depth understanding of human behavior..."
-          },
+          ,
           {
             "type": "image",
-            "src": "assets/psychology.jpg",
+            "src": "assets/child-dev.jpg",
             "alt": "Psychology Programme Image"
+          }
+          {
+            "type": "text",
+            "content": "On this course, you will study specialist modules in child and educational psychology alongside the core psychology curriculum. We focus on understanding how psychology shapes children’s learning and development, and how we can apply psychological theory to support children in education and in the wider community."
+          },
+          {
+            "type": "header",
+            "content": "Who is this programme for?"
+          },
+          {
+            "type": "text",
+            "content": "This programme is ideal for anyone who’s interested in using psychology to make a positive contribution to the lives of children and young people."
           }
         ],
         "modules": [
-          1,
-          2,
-          3,
           7,
-          9
+          9,
+          10
         ],
         "staff": 1
       }
@@ -265,24 +272,18 @@
       },
       {
         "id": 7,
-        "name": "Introduction to Child and Educational Psychology",
+        "name": "Introduction to Child and Educational Psychology (first year)",
         "description": "Developmental Psychology",
         "details": [
           {
             "type": "header",
-            "content": "Programme Overview"
+            "content": "Module Overview"
           },
           {
             "type": "text",
-            "content": "This programme provides an in-depth understanding of human behavior..."
-          },
-          {
-            "type": "image",
-            "src": "assets/psychology.jpg",
-            "alt": "Psychology Programme Image"
+            "content": "In this module we take a deep dive into understanding foundational concepts in child and educational psychology. We begin by looking at how children develop during in their first few years of life. We then turn to look at some key theories of psychology and how they we can apply them in an educational context. Finally, we explore some current debates in educational psychology around how best to identify and support students with additional needs."
           }
-        ],
-        "assessment": "Poster Presentation (50%), Essay (50%)"
+        ]
       },
       {
         "id": 8,
@@ -325,6 +326,36 @@
           }
         ],
         "assessment": "Poster Presentation (50%), Essay (50%)"
+      },
+      {
+        "id": 9,
+        "name": "Child and Educational Psychology in Theory and Practice (second year)",
+        "description": "Developmental Psychology",
+        "details": [
+          {
+            "type": "header",
+            "content": "Module Overview"
+          },
+          {
+            "type": "text",
+            "content": "In this module we focus on two areas where educational psychology has made significant advances. We begin by looking at how children develop academic skills and abilities and why some children are not able to do this as easily as others, with a strong focus on development in maths and reading. Next, we turn to look at how broader psychological factors such as metacognition influence the way children and adults engage with education. Our journey through these areas is embedded in developing our knowledge, practice, and application of reflective practice -  a key skill for all practitioners. You'll apply psychological theory, research, and legislation to case study scenarios, allowing you to identify strategies to support children and young people and enhance the practices of those working alongside them."
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "name": "Child and Educational Psychology in Theory and Practice (second year)",
+        "description": "Developmental Psychology",
+        "details": [
+          {
+            "type": "header",
+            "content": "Module Overview"
+          },
+          {
+            "type": "text",
+            "content": "In this module we will explore the role of wider society, educational psychologists, and other school-based practitioners in supporting children’s wider development, from developing socioemotional skills to ensuring their wellbeing. We will be asking questions like: 'Are schools a good place to address child mental health issues?', 'How can schools improve pupil wellbeing?', and 'What evidence is there that school-based interventions work?'. Throughout the module you will get the chance to put yourself in the shoes of an educational psychologist, drawing on psychological ideas and new research to suggest strategies to support those in education settings. You’ll also get to meet members of our wider psychology team, learning how they apply their specialist knowledge areas to supporting children’s development in a variety of contexts."
+          }
+        ]
       }
     ],
     "staff": [
