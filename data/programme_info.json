@@ -6,11 +6,11 @@
         "details": [
           {
             "type": "header",
-            "content": "Dynamic options"
+            "content": "Programme Overview options"
           },
           {
             "type": "text",
-            "content": "I have extended the functionality of the details section in details to the programmes and module sections so we can add headers, text and images."
+            "content": "The BSc (Hons) Psychology at Leeds Trinity University provides students with a comprehensive understanding of psychological theory, research methods, and practical applications. Accredited by the British Psychological Society, the programme covers key areas such as cognitive, developmental, and social psychology, alongside research skills and ethical practice. Students will engage in a variety of activities, including lectures, seminars, and practical research projects. Assessment is diverse, ranging from essays and presentations to research reports and portfolios, preparing students for both academic and professional careers in psychology."
           },
           {
             "type": "image",
