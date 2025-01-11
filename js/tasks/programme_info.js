@@ -146,19 +146,19 @@ document.addEventListener("DOMContentLoaded", () => {
             shared: false
         },
         "forensic-psych": {
-            title: "Introduction to Child and Educational Psychology  (Level 4, first year)",
+            title: "Introduction to Forensic Psychology  (Level 4, first year)",
             description: "This module introduces students to the fundamental concepts of forensic psychology, exploring the role of psychologists within the criminal justice system. It covers key areas such as criminal behavior, profiling, and ethical considerations in forensic practice, providing a foundation for further study in the field.",
             assignments: "An essay (50%) examining foundational forensic psychology theories and a negotiated ethics assessment (50%) evaluating ethical considerations in practice.",
             shared: false
         },
         "forensic-psych-2": {
-            title: "Child and Educational Psychology in Theory and Practice (Level 5, second year)",
+            title: "Forensic Psychology in Theory and Practice (Level 5, second year)",
             description: "This module delves deeper into the application of forensic psychology theories in real-world settings. Students examine offender behavior, rehabilitation strategies, and the psychological assessment of individuals within legal and correctional contexts, enhancing their practical understanding of forensic interventions.",
             assignments: "An essay and a case analysis, applying forensic psychological techniques and evaluating interventions.",
             shared: false
         },
         "forensic-psych-3": {
-            title: "Applied Child and Educational Psychology (Level 6, third year)",
+            title: "Applied Forensic Psychology (Level 6, third year)",
             description: "In this advanced module, students apply their knowledge to complex forensic cases, focusing on intervention strategies, risk assessment, and the evaluation of rehabilitation programs. The module emphasizes critical thinking and reflective practice, preparing students for professional roles in forensic psychology.",
             assignments: "A case study analysis and reflective essay applying forensic psychology principles to real-world scenarios.",
             shared: false
@@ -176,19 +176,19 @@ document.addEventListener("DOMContentLoaded", () => {
             shared: false
         },
         "sport-psych-1": {
-            title: "Applied Child and Educational Psychology (Level 6, third year)",
+            title: "Principles of Sport Psychology(Level 4, first year)",
             description: "This module introduces the foundational principles of sport psychology. It covers key psychological theories and their application to sport and exercise settings, helping students understand how psychological factors influence performance, motivation, and well-being in athletes. Topics may include goal setting, mental preparation, motivation techniques, and the role of the sport psychologist in enhancing performance and well-being.",
             assignments: "Two Negotiated Assessments, each contributing 50% of the module grade. These assessments may involve projects, presentations, or written work where students apply principles of sport psychology to real-world or simulated scenarios.",
             shared: false
         },
         "sport-psych-2": {
-            title: "Contemporary Issues in Psychology 1 (Level 4, first year)",
+            title: "Sport Psychology - Working with Stakeholders (Level 5, second year)",
             description: "This module focuses on the practical skills needed to work effectively with various stakeholders in sport settings, such as athletes, coaches, and sport organizations. Students learn about consulting skills, psychological interventions, and communication strategies essential for sport psychologists. The module emphasizes building professional relationships and understanding the ethical considerations involved in sport psychology practice.",
             assignments: "Assessments may include case studies, reflective reports, or simulated consultations, where students demonstrate their ability to apply sport psychology principles in collaborative and professional contexts with stakeholders.",
             shared: false
         },
         "sport-psych-3": {
-            title: "Contemporary Issues in Psychology 2 (Level 5, second year)",
+            title: "Sport Psychology in Context (Level 6, third year)",
             description: "This advanced module explores the application of sport psychology principles in diverse contexts, such as professional sports teams, individual athletes, and community sports settings. It includes a critical evaluation of case studies, intervention strategies, and contemporary issues in sport psychology. Students develop a sophisticated understanding of how psychological factors can impact performance, well-being, and development across different populations and levels of sport participation.",
             assignments: "This module might involve case analysis, intervention planning, and applied research projects, allowing students to critically evaluate and apply their knowledge of sport psychology to various real-world and simulated scenarios.",
             shared: false
