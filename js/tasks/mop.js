@@ -339,7 +339,7 @@ const modules = {
         yearLong: false,
         semester1: false,
         semester2: true,
-        description: "Co-designed with Leeds Trinity psychology students, this module applies a feminist and discursive lens to critically explore gender, sexuality, race, social class, and justice. It examines the interpretative frameworks shaping these topics, addressing key ideological dilemmas and personal perspectives. <p>The module is framed by two central questions:</P><ul><li>How does psychology help people?</li><li>How could psychology help people?</li></ul><p>Sessions are highly interactive, featuring small group discussions, student-led presentations, and debates. Assessment includes:</p><ul><li>Active participation in at least four presentation weeks (pass/fail).</li><li>Conference poster (50%) exploring a module topic, supported by academic literature.</li><li>Reflective report (50%) analyzing personal learning and module content, grounded in academic research.<em> (Assessment subject to approval.)</em></li></ul>",
+        description: "Co-designed with Leeds Trinity psychology students, this module applies a feminist and discursive lens to critically explore gender, sexuality, race, social class, and justice. It examines the interpretative frameworks shaping these topics, addressing key ideological dilemmas and personal perspectives. <p>The module is framed by two central questions:</P><ul><li>How does psychology help people?</li><li>How could psychology help people?</li></ul><p>Sessions are highly interactive, featuring small group discussions, student-led presentations, and debates.",
         assignments: "Written Report (2000 words)",
         mandatory: false,
         day: "Wednesday: 10am to 12.30pm, all semester"
