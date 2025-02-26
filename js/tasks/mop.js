@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let moduleClass = module.sociology ? "sociology-module" : "psychology-module";
         return `
             <div class="${moduleClass}">
-                <button class="collapsible">${module.title}</button>
+                <button class="collapsible">${moduleId.toUpperCase()} - ${module.title}</button>
                 <div class="module-content">
                     <p>${module.description}</p>
                     ${module.staff ? `<h3>Staff</h3><p>${module.staff}</p>` : ""}
