@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function createModuleSection(moduleId) {
         const module = modules[moduleId];
         let moduleClass = module.sociology ? "sociology-module" : "psychology-module";
-        console.log(moduleID);
+        console.log(moduleId);
         return `
             <div class="${moduleClass}">
                 <button class="collapsible">${moduleId.toUpperCase()} - ${module.title}</button>
