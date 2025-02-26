@@ -6,14 +6,18 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "L6 Psychology Optional Module Information",
         description: `
             This site has been put together to help you decide which optional modules you want to do at Level 6. Here are few key things to keep in mind:
-            <ul>
-            <li>This site is for information only.</li>
-            <li>Modules will only run if there are sufficient interest.</li>
-            <li>It is recommended that you choose an option that interests you.</li> 
-            <li>Consider which types of assessment tend to produce your best grades.</li>
-            <li>Get in touch with the module leader for the module to ask any questions.</li>
-            <li>Timetable information is based on the current academic year and are subject to change.</li>
-            </ul>
+<h4>Module Availability</h4>
+<li>Modules will only run next year if they attract sufficient numbers of students to them.</li>
+<li>If a module isn’t running you will be allocated your reserve choice.</li>
+<li>We cannot, therefore, guarantee that all of the modules listed will run next year, but you will receive confirmation of your choices in May.</li>
+</ul>
+<h4>The Timetable</h4>
+<ul>
+<li>Level 6 timetable is organised in blocks.</li>
+<li>We can’t run option modules at the same time.</li>
+<li>Your timetable depends on which modules you choose.</li>
+<li>Focus is on independent working with supervision and a lot of your time will be spent working on the Research Project and Professional Learning Through Work, so you will have less ‘classroom’ time than in previous years.</li>
+</ul>          
             To get started click on your programme at the top.
             `
     };
