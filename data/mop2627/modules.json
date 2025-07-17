@@ -1,0 +1,28 @@
+[
+  {
+    "id": "PSY401",
+    "title": "Intro to Child Psychology",
+    "level": 4,
+    "credits": 20,
+    "pathway": "Education and Child Development",
+    "pathwayColour": "red",
+    "description": "Explore developmental theory and learning processes. Ideal for careers in teaching and child support.",
+    "staff": "Dr. A Smith",
+    "timetable": "Mon 9–11",
+    "assessment": "Essay",
+    "conflicts": ["PSY402"]
+  },
+  {
+    "id": "PSY501",
+    "title": "Health Psychology in Practice",
+    "level": 5,
+    "credits": 20,
+    "pathway": "Health Psychology",
+    "pathwayColour": "yellow",
+    "description": "This module explores applied approaches in health psychology...",
+    "staff": "Dr. Jane Green",
+    "timetable": "Tue 14–16",
+    "assessment": "Case Study + Presentation",
+    "conflicts": ["PSY502"]
+  }
+]
