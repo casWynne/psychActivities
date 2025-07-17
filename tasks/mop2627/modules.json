@@ -10,7 +10,9 @@
     "staff": "Dr. A Smith",
     "timetable": "Sem 1: Mon 9–11",
     "assessment": "Essay",
-    "conflicts": ["PSY402"]
+    "conflicts": [
+      "PSY402"
+    ]
   },
   {
     "id": "PSY402",
@@ -23,7 +25,9 @@
     "staff": "Dr. L Patel",
     "timetable": "Sem 1: Mon 9–11",
     "assessment": "MCQ and Short Answer Exam",
-    "conflicts": ["PSY401"]
+    "conflicts": [
+      "PSY401"
+    ]
   },
   {
     "id": "PSY403",
@@ -49,7 +53,9 @@
     "staff": "Dr. Jane Green",
     "timetable": "Sem 1: Tue 14–16",
     "assessment": "Case Study + Presentation",
-    "conflicts": ["PSY502"]
+    "conflicts": [
+      "PSY502"
+    ]
   },
   {
     "id": "PSY502",
@@ -62,7 +68,9 @@
     "staff": "Dr. A Smith",
     "timetable": "Sem 1: Tue 14–16",
     "assessment": "Essay and Classroom Observation Report",
-    "conflicts": ["PSY501"]
+    "conflicts": [
+      "PSY501"
+    ]
   },
   {
     "id": "PSY503",
@@ -76,6 +84,34 @@
     "timetable": "Sem 1: Thu 10–12",
     "assessment": "Practical Assessment + Report",
     "conflicts": []
+  },
+  {
+    "id": "PSY504",
+    "title": "Sport & Exercise Motivation",
+    "level": 5,
+    "credits": 20,
+    "pathway": "Sports and Exercise Psychology",
+    "pathwayColour": "blue",
+    "description": "Examine the psychological factors that enhance motivation and performance in sport and physical activity.",
+    "staff": "Dr. Alan Birch",
+    "timetable": "Sem 2: Wed 10–12",
+    "assessment": "Case Study",
+    "conflicts": []
+  },
+  {
+    "id": "PSY505",
+    "title": "Cognitive Development in Education",
+    "level": 5,
+    "credits": 20,
+    "pathway": "Education and Child Development",
+    "pathwayColour": "red",
+    "description": "Understand how children learn, remember, and solve problems across developmental stages.",
+    "staff": "Dr. Emma Patel",
+    "timetable": "Sem 2: Tue 14–16",
+    "assessment": "Essay + Seminar Participation",
+    "conflicts": [
+      "PSY501"
+    ]
   },
   {
     "id": "PSY601",
@@ -114,6 +150,32 @@
     "staff": "Dr. H Nguyen",
     "timetable": "Sem 1: Thu 14–16",
     "assessment": "Literature Review + Essay",
+    "conflicts": []
+  },
+  {
+    "id": "PSY604",
+    "title": "Advanced Forensic Case Analysis",
+    "level": 6,
+    "credits": 20,
+    "pathway": "Forensic Psychology",
+    "pathwayColour": "indigo",
+    "description": "Critically evaluate real-world case studies in forensic psychology, with emphasis on assessment and ethical decision-making.",
+    "staff": "Dr. Tom Rayner",
+    "timetable": "Sem 2: Mon 11–13",
+    "assessment": "Case Report + Vignette Task",
+    "conflicts": []
+  },
+  {
+    "id": "PSY605",
+    "title": "Organisational Psychology in Practice",
+    "level": 6,
+    "credits": 20,
+    "pathway": "Marketing, Business and Organisational Psychology",
+    "pathwayColour": "green",
+    "description": "Apply psychological theory to workplace wellbeing, productivity, and team dynamics.",
+    "staff": "Dr. Hannah Greene",
+    "timetable": "Sem 1: Wed 14–16",
+    "assessment": "Field Report",
     "conflicts": []
   }
 ]
