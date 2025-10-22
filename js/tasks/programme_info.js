@@ -71,7 +71,7 @@ const DATA = {
   pathways: [
     "Psychology",
     "Counselling",
-    "Education & Child Dev",
+    "Education & Child Development",
     "Forensic",
     "Health",
     "Occupational, Business & Marketing",
@@ -146,6 +146,8 @@ const DATA = {
 
     { id: "PSY6715", title: "The Psychology of Injury and Rehabilitation (Sport and Exercise Perspectives)", tagline: "Explore the psychology of recovery - building resilience in sport and exercise.", overview: "Examine the psychological impact of sports injury, from initial diagnosis to long-term rehabilitation. You’ll explore theories of coping, adherence to treatment, and the role of the psychologist in supporting mental and emotional recovery, learning how to apply evidence-based strategies to promote wellbeing and a successful return to activity.", assessments: ["2,000-word or equivalent Negotiated Assessment*"], tl_methods: ["1 x 2.5-hour workshop"], level: "Level 6", term: "Sem 1", isCompulsory: false, duration: "semester", pathways: ["Sport & Exercise"] },
     { id: "PSY6725", title: "The Psychology of Human Performance (Sport and Exercise Perspectives)", tagline: "Discover what drives peak performance - and the psychology behind success.", overview: "Explore how psychological principles enhance performance and wellbeing in high-pressure environments. You’ll examine theories and research on motivation, focus, resilience, and the interaction between individuals and their environments - gaining insight into how psychology helps people perform at their best.", assessments: ["2,000-word or equivalent Negotiated Assessment*"], tl_methods: ["1 x 2.5-hour workshop"], level: "Level 6", term: "Sem 2", isCompulsory: false, duration: "semester", pathways: ["Sport & Exercise"] },
+    { id: "PSY6915", title: "Professional Learning Through Work", tagline: "Turn experience into opportunity - where learning meets the real world.", overview: "Apply psychological theory to a real-world context - either through a work-based project or targeted skill development - building experience that enhances your professional profile. Alongside workshops on employability, project management, and reflective practice, you’ll strengthen your CV, confidence, and readiness for graduate opportunities.", assessments: ["20 Minute Viva and completion of 20-hours on project"], tl_methods: ["<ul><li>8 x 1-hour interactive lectures</li><li>3 x 1-hour individual supervision</li><li>3 x 1-hour group supervision</li></ul>"], level: "Level 6", term: "All year", isCompulsory: true, duration: "all-year", pathways: ["Psychology"] },
+
   ]
 };
 
@@ -241,28 +243,43 @@ function matches(m) {
 }
 
 /* ---------- Module element (<details>) ---------- */
+
+/* Inside programme_info.js, find and replace the moduleEl function */
+
 function moduleEl(m) {
   const det = document.createElement("details");
   det.className = "module";
+  // >> NEW LOGIC: Add a class for compulsory modules
+  if (m.isCompulsory) {
+      det.classList.add("module--compulsory");
+  }
   det.dataset.pathway = m.pathways?.[0] || "Psychology";
 
   const summary = document.createElement("summary");
 
   const title = document.createElement("span");
   title.className = "title";
-  title.textContent = m.title;
+  title.innerHTML = m.title; // Change from .textContent to .innerHTML to allow the tag
+  
+  // >> NEW LOGIC: Add a highly visible tag next to the title
+  // if (m.isCompulsory) {
+  //     title.innerHTML += '<span class="compulsory-header-tag">COMPULSORY</span>';
+  // }
 
   const meta = document.createElement("span");
   meta.className = "meta";
+  // ... rest of the original function remains the same ...
+  // ... the existing tags (t1, t2) will still render ...
 
+  // ... (The rest of the function continues as before) ...
   const t1 = document.createElement("span");
   t1.className = "tag " + (m.isCompulsory ? "compulsory" : "optional");
   t1.textContent = m.isCompulsory ? "Compulsory" : "Optional";
-
+  
   const t2 = document.createElement("span");
   t2.className = "tag " + (m.duration === "all-year" ? "all-year" : "semester");
   t2.textContent = m.duration === "all-year" ? "All year" : "Semester";
-
+  
   meta.append(t1, t2);
   summary.append(title, meta);
   det.appendChild(summary);
@@ -315,12 +332,17 @@ function renderYear(yearId, level, headingText) {
 
   $$(root, ".year-rule").forEach((n) => n.remove());
 
-  const mods = (DATA.modules || [])
+const mods = (DATA.modules || [])
     .filter((m) => m.level === level && matches(m))
-    .sort(
-      (a, b) =>
-        (a.term > b.term) - (a.term < b.term) || a.title.localeCompare(b.title)
-    );
+    .sort((a, b) => {
+      // >> NEW LOGIC: 1. Compulsory modules (true) come first
+      // (b.isCompulsory ? 1 : 0) - (a.isCompulsory ? 1 : 0) will sort true before false
+      const compulsorySort = (b.isCompulsory ? 1 : 0) - (a.isCompulsory ? 1 : 0);
+      if (compulsorySort !== 0) return compulsorySort;
+
+      // 2. Secondary sort: Alphabetical by title (maintains stable order within groups)
+      return a.title.localeCompare(b.title);
+    });
 
   if (!mods.length) {
     root.hidden = true;
