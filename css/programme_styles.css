@@ -677,3 +677,28 @@ footer {
         font-size: 1rem;
     }
 }
+
+/* =========================================
+   NEW: Pathway Tag Styling
+   ========================================= */
+
+/* Use the module's primary pathway color for a clear visual link */
+.module-pathway-tag {
+    /* Use the variable defined in the parent .module element's styling (e.g., --accent) */
+    background: hsl(var(--accent)); 
+    color: hsl(var(--ink-2)); /* Black text for contrast */
+    border: 1px solid hsl(var(--accent-dark)); /* Use the darker accent color for border */
+    font-weight: 500;
+    margin-left: 5px; /* Add slight separation from the other tags */
+}
+
+/* Ensure the generic .tag styles are applied */
+.tag {
+    /* Assuming you have a base style for all tags (t1, t2) that includes padding, border-radius, etc. */
+    display: inline-block;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    line-height: 1;
+    text-transform: uppercase;
+}
