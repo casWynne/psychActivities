@@ -2,35 +2,66 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psychology Programme and Module Information</title>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="../css/programme_styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>LTU Programme</title>
 </head>
 
 <body>
-    <header>
-        <img src="../assets/headerImage.png" alt="Header Image" class="header-image">
-    </header>
+  <header><h1>LTU Psychology – Programme Explorer</h1></header>
 
-    <nav aria-label="Programme Navigation">
-        <button class="programme-option" id="foundation">Foundation Year</button>
-        <button class="programme-option" id="psych">BSc Psychology</button>
-        <button class="programme-option" id="counselling">BSc Counselling Psychology</button>
-        <button class="programme-option" id="sport-psych">BSc Sport Psychology</button>
-        <button class="programme-option" id="forensic-psych">BSc Forensic Psychology</button>
-        <button class="programme-option" id="child-dev">BSc Psychology and Child Development</button>
-    </nav>
+  <div class="middle-text" id="programme-description"></div>
+  <div class="middle-text" id="pathway-description"></div>
+    <div id="pathways" aria-label="Pathways">
+    <ul id="pathway-list"></ul>
+  </div>
+  <div class="middle-text" id="student-profiles">
+  </div>
 
-    <main>
-        <!-- Main content will be dynamically inserted here -->
-    </main>
 
-    <footer>
-    </footer>
-    <script src="../js/tasks/programme_info.js"></script>
+  <section class="academic-year" id="l4" aria-labelledby="l4-h">
+    <details class="semester" data-term="all-year">
+        <summary><h3>All year</h3></summary>
+    </details>
+    <details class="semester" data-term="sem1">
+        <summary><h3>Semester 1</h3></summary>
+    </details>
+    <details class="semester" data-term="sem2">
+        <summary><h3>Semester 2</h3></summary>
+    </details>
+  </section>
+
+  <section class="academic-year" id="l5" aria-labelledby="l5-h">
+    <details class="semester" data-term="all-year">
+        <summary><h3>All year</h3></summary>
+    </details>
+    <details class="semester" data-term="sem1">
+        <summary><h3>Semester 1</h3></summary>
+    </details>
+    <details class="semester" data-term="sem2">
+        <summary><h3>Semester 2</h3></summary>
+    </details>
+  </section>
+
+  <section class="academic-year" id="l6" aria-labelledby="l6-h">
+    <details class="semester" data-term="all-year">
+        <summary><h3>All year</h3></summary>
+    </details>
+    <details class="semester" data-term="sem1">
+        <summary><h3>Semester 1</h3></summary>
+    </details>
+    <details class="semester" data-term="sem2">
+        <summary><h3>Semester 2</h3></summary>
+    </details>
+  </section>
+
+  <footer>
+<p>Made by Caspar Wynne</p>
+    </select>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
