@@ -470,6 +470,7 @@ function renderProfiles() {
     container.appendChild(card);
   });
 }
+
 /* ---------- Back to Top Button Logic ---------- */
 function mountBackToTop() {
     const button = $("#back-to-top");
@@ -499,6 +500,7 @@ function mountBackToTop() {
     // Initial check in case page loads partway down
     toggleVisibility(); 
 }
+
 /* ---------- Boot ---------- */
 (function init() {
   mountCopy();
@@ -508,5 +510,3 @@ function mountBackToTop() {
   renderAll();
   mountBackToTop();
 })();
-
-
