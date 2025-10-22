@@ -470,7 +470,35 @@ function renderProfiles() {
     container.appendChild(card);
   });
 }
+/* ---------- Back to Top Button Logic ---------- */
+function mountBackToTop() {
+    const button = $("#back-to-top");
+    if (!button) return;
 
+    // Show/hide button based on scroll position
+    const toggleVisibility = () => {
+        if (window.scrollY > 200) {
+            button.classList.add("show");
+        } else {
+            button.classList.remove("show");
+        }
+    };
+
+    // Scroll to top with smooth animation
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
+    // Attach event listeners
+    window.addEventListener("scroll", toggleVisibility);
+    button.addEventListener("click", scrollToTop);
+
+    // Initial check in case page loads partway down
+    toggleVisibility(); 
+}
 /* ---------- Boot ---------- */
 (function init() {
   mountCopy();
@@ -478,4 +506,6 @@ function renderProfiles() {
   mountFooter();
   renderProfiles(); 
   renderAll();
+  mountBackToTop();
 })();
+
