@@ -1,207 +1,576 @@
-/* Root colors from your existing palette */
+/* =========================================
+   LTU Programme – Simplified & Minimalist UI
+   ========================================= */
+
 :root {
-    --primary: #4A0021;
-    --secondary: #FFC1D9;
-    --hover: #ffe6ef;
-    --grey: #B5EAEA;
-    --background: #fafafa;
-    --charcoal: #232323;
+    /* Pathway Hues (Rainbow scheme) */
+    --psy: 300 60% 70%;
+    /* Purple/Magenta */
+    --cou: 220 60% 70%;
+    /* Blue */
+    --edu: 120 60% 70%;
+    /* Green */
+    --for: 60 90% 70%;
+    /* Yellow/Gold */
+    --hea: 30 90% 70%;
+    /* Orange/Coral */
+    --obm: 0 80% 70%;
+    /* Red */
+    --spt: 180 60% 70%;
+    /* Cyan */
+
+    /* Student Profile Card Hues (from image) */
+    --explorer-bg: 170 80% 90%;
+    /* Mint Green */
+    --specialist-bg: 340 80% 90%;
+    /* Light Pink */
+    --pathfinder-bg: 220 80% 90%;
+    /* Light Blue */
+
+    --explorer-accent: 170 60% 40%;
+    --specialist-accent: 340 60% 40%;
+    --pathfinder-accent: 220 60% 40%;
+
+
+    /* Surfaces & ink (Minimalist palette) */
+    --bg: 0 0% 98%;
+    --card: 0 0% 100%;
+    --ink: 220 20% 14%;
+    --ink-2: 220 10% 40%;
+    --line: 220 15% 90%;
+    --ring: 210 100% 40% / .28;
+
+    /* Layout */
+    --r: 10px;
+    /* Radius */
+    --sp1: 8px;
+    /* Small spacing */
+    --sp2: 16px;
+    /* Medium spacing */
+    --sp3: 24px;
+    /* Large spacing */
+    --max: 960px;
 }
 
-/* General body and layout styles */
+/* Dark mode simplified */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: 220 15% 10%;
+        --card: 220 15% 14%;
+        --ink: 0 0% 100%;
+        --ink-2: 0 0% 78%;
+        --line: 220 10% 22%;
+
+        /* Dark mode adjustments for profile cards */
+        --explorer-bg: 170 40% 20%;
+        --specialist-bg: 340 40% 20%;
+        --pathfinder-bg: 220 40% 20%;
+
+        --explorer-accent: 170 60% 70%;
+        --specialist-accent: 340 60% 70%;
+        --pathfinder-accent: 220 60% 70%;
+    }
+}
+
+/* Reset-ish */
+* {
+    box-sizing: border-box
+}
+
 body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: var(--background);
     margin: 0;
-    padding: 0;
+    font: 16px/1.6 system-ui, sans-serif;
+    color: hsl(var(--ink));
+    background: hsl(var(--bg));
 }
 
-/* Header styles */
+/* -----------------------------------------
+   Header + intro text
+----------------------------------------- */
 header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: hsl(var(--card));
+    box-shadow: 0 4px 8px -2px hsl(var(--ink) / 0.05);
+    border-bottom: 1px solid hsl(var(--line));
+    padding: 12px var(--sp3);
+    font-weight: 700;
     text-align: center;
-    padding: 20px;
-    background-color: var(--primary);
 }
 
-.header-image {
-    max-width: 100%;
-    height: auto;
+.middle-text {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: var(--sp2) var(--sp3);
+    color: hsl(var(--ink-2));
 }
 
-/* Nav bar styles */
-nav {
+.middle-text h2,
+.middle-text h3 {
+    color: hsl(var(--ink));
+}
+
+
+/* -----------------------------------------
+   Pathway chips (Flexbox Layout & Sizing)
+----------------------------------------- */
+#pathways {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--sp3) var(--sp2);
+}
+
+#pathway-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    background-color: var(--grey);
-    padding: 10px 0;
+    gap: 12px;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 900px;
 }
 
-/* Button styles for the nav */
-.programme-option {
-    background-color: var(--secondary);
-    color: var(--charcoal);
-    border: none;
-    padding: 10px 20px;
-    margin: 0 5px;
-    font-size: 16px;
+#pathway-list li {
+    list-style: none;
+    flex-basis: calc(25% - 9px);
+    min-width: 200px;
+}
+
+/* Responsive adjustment: Switch to 2 columns on smaller screens */
+@media (max-width: 650px) {
+    #pathway-list li {
+        flex-basis: calc(50% - 6px);
+    }
+}
+
+.pathway-chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+    padding: 12px 18px;
+    border-radius: var(--r);
+    background: hsl(var(--line));
+    border: 2px solid transparent;
+    font-size: 1.1rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    border-radius: 5px;
-}
-
-/* Button hover and focus effects */
-.programme-option:hover,
-.programme-option:focus {
-    background-color: var(--hover);
-    transform: scale(1.05);
-}
-
-/* Ensuring button text is accessible */
-.programme-option:active {
-    background-color: var(--charcoal);
-    color: var(--hover);
-}
-
-/* Main section styling */
-main {
-    background-color: var(--background);
-    border: 1px solid var(--grey);
-    border-radius: 8px;
-    padding: 20px;
-    margin: 50px auto;
-    max-width: 800px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-}
-
-/* Heading styles within the main section */
-main h2 {
-    font-family: 'Merriweather', serif;
-    color: var(--primary);
-    margin-bottom: 15px;
-}
-
-/* Paragraph styles within the main section */
-main p {
-    font-family: 'Open Sans', sans-serif;
-    color: var(--charcoal);
-    line-height: 1.6;
-}
-
-/* Add a subtle hover effect for the main section */
-
-/* Footer styles */
-footer {
+    user-select: none;
+    transition: background .15s ease, border-color .15s ease, color .15s ease;
     text-align: center;
-    background-color: var(--primary);
-    color: var(--secondary);
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
-/* Responsive adjustments for mobile screens */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-    }
-
-    .programme-option {
-        margin: 5px 0;
-        width: 100%;
-    }
+.pathway-chip:hover {
+    background: hsl(var(--line) / .5);
 }
 
-/* Collapsible button styles */
-.collapsible {
-    background-color: var(--primary);
-    color: var(--secondary);
+/* Filter indicator */
+.pathway-chip[aria-pressed="true"] {
+    background: var(--accent-light, hsl(var(--line)));
+    border-color: var(--accent-dark, hsl(var(--ink-2)));
+    color: hsl(var(--ink));
+    font-weight: 700;
+}
+
+.dot {
+    flex-shrink: 0;
+    inline-size: 10px;
+    block-size: 10px;
+    border-radius: 50%;
+    background: var(--accent, hsl(var(--ink-2)));
+}
+
+/* -----------------------------------------
+   Year → pathway accent mapping (The Rainbow!)
+----------------------------------------- */
+/* Define the colors based on the root variables */
+[data-pathway="Psychology"] {
+    --accent: hsl(var(--psy));
+}
+
+[data-pathway="Counselling"] {
+    --accent: hsl(var(--cou));
+}
+
+[data-pathway="Education & Child Dev"] {
+    --accent: hsl(var(--edu));
+}
+
+[data-pathway="Forensic"] {
+    --accent: hsl(var(--for));
+}
+
+[data-pathway="Health"] {
+    --accent: hsl(var(--hea));
+}
+
+[data-pathway="Occupational, Business & Marketing"] {
+    --accent: hsl(var(--obm));
+}
+
+[data-pathway="Sport & Exercise"] {
+    --accent: hsl(var(--spt));
+}
+
+/* Generate light and dark accent color for use in chips and modules */
+[data-pathway] {
+    --accent-light: color(from var(--accent) srgb r g b / .2);
+    --accent-dark: color(from var(--accent) srgb r g b / .6);
+}
+
+/* Manual override for light background in pressed state to ensure high contrast text */
+.pathway-chip[data-pathway="Psychology"] {
+    --accent-light: hsl(300 60% 92%);
+}
+
+.pathway-chip[data-pathway="Counselling"] {
+    --accent-light: hsl(220 60% 92%);
+}
+
+.pathway-chip[data-pathway="Education & Child Dev"] {
+    --accent-light: hsl(120 60% 92%);
+}
+
+.pathway-chip[data-pathway="Forensic"] {
+    --accent-light: hsl(60 90% 92%);
+}
+
+.pathway-chip[data-pathway="Health"] {
+    --accent-light: hsl(30 90% 92%);
+}
+
+.pathway-chip[data-pathway="Occupational, Business & Marketing"] {
+    --accent-light: hsl(0 80% 92%);
+}
+
+.pathway-chip[data-pathway="Sport & Exercise"] {
+    --accent-light: hsl(180 60% 92%);
+}
+
+
+/* -----------------------------------------
+   Student Profiles Section
+----------------------------------------- */
+.student-profiles {
+    max-width: var(--max);
+    margin: var(--sp3) auto;
+    /* Add some space above/below */
+    padding: 0 var(--sp3);
+}
+
+.student-profiles h2 {
+    margin-bottom: var(--sp2);
+    font-size: 1.4rem;
+    letter-spacing: .01em;
+    font-weight: 800;
+    text-align: center;
+    /* Center the title */
+    color: hsl(var(--ink));
+}
+
+.profile-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp2);
+    /* Space between cards */
+    justify-content: center;
+    /* Center the cards if they don't fill the row */
+}
+
+.profile-card {
+    flex: 1 1 calc(33.33% - (2 * var(--sp2) / 3));
+    /* For 3 cards in a row with gap */
+    min-width: 280px;
+    /* Minimum width before stacking */
+    padding: var(--sp3);
+    border-radius: var(--r);
+    border: 1px solid hsl(var(--line));
+    /* Subtle border */
+    color: hsl(var(--ink));
+    /* Default text color */
+}
+
+.profile-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+}
+
+.profile-card ul {
+    list-style: disc;
+    /* Use standard bullet points */
+    padding-left: 20px;
+    margin-top: var(--sp1);
+    color: hsl(var(--ink-2));
+}
+
+.profile-card ul li {
+    margin-bottom: var(--sp1);
+}
+
+.profile-card p {
+    color: hsl(var(--ink-2));
+}
+
+.profile-icon {
+    font-size: 1.5em;
+    /* Make icons larger */
+    line-height: 1;
+    /* Align text better */
+    flex-shrink: 0;
+    /* Prevent icon from shrinking */
+}
+
+/* Specific colors for each profile card */
+.profile-card.explorer {
+    background: hsl(var(--explorer-bg));
+    border-color: hsl(var(--explorer-accent));
+}
+
+.profile-card.explorer .profile-icon {
+    color: hsl(var(--explorer-accent));
+}
+
+.profile-card.specialist {
+    background: hsl(var(--specialist-bg));
+    border-color: hsl(var(--specialist-accent));
+}
+
+.profile-card.specialist .profile-icon {
+    color: hsl(var(--specialist-accent));
+}
+
+.profile-card.pathfinder {
+    background: hsl(var(--pathfinder-bg));
+    border-color: hsl(var(--pathfinder-accent));
+}
+
+.profile-card.pathfinder .profile-icon {
+    color: hsl(var(--pathfinder-accent));
+}
+
+
+/* -----------------------------------------
+   Year sections & rule banners
+----------------------------------------- */
+.academic-year {
+    max-width: var(--max);
+    margin: var(--sp3) auto var(--sp3);
+    /* Add more margin above */
+    padding: 0 var(--sp3);
+}
+
+.academic-year>h2 {
+    margin: var(--sp3) 0 var(--sp1);
+    font-size: 1.4rem;
+    letter-spacing: .01em;
+    font-weight: 800;
+}
+
+.year-rule {
+    max-width: var(--max);
+    margin: 0 auto var(--sp2);
+    font-size: .95rem;
+    color: hsl(var(--ink-2));
+    padding: 10px 12px;
+    background: hsl(var(--card));
+    border: 1px dashed hsl(var(--line));
+    border-radius: var(--r);
+}
+
+/* Terms (Collapsible Semesters) */
+.semester {
+    border: 1px solid hsl(var(--line));
+    border-radius: var(--r);
+    overflow: hidden;
+    background: hsl(var(--card));
+}
+
+.semester>summary {
+    list-style: none;
     cursor: pointer;
-    padding: 10px;
-    width: 100%;
-    border: none;
-    text-align: left;
+    user-select: none;
+    /* Proper padding for a clickable header */
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    /* Make it look like a distinct bar when closed */
+    background: hsl(var(--line) / .5);
+    border-bottom: 1px solid transparent;
+    transition: background .15s ease;
+}
+
+.semester[open]>summary {
+    border-bottom: 1px solid hsl(var(--line));
+    /* Separator when open */
+    background: hsl(var(--card));
+    /* White background when open */
+}
+
+.semester>summary:hover {
+    background: hsl(var(--line));
+    /* Stronger hover effect */
+}
+
+.semester>summary::-webkit-details-marker {
+    display: none
+}
+
+.semester>summary::after {
+    content: "▸";
+    color: hsl(var(--ink-2));
+    font-weight: 800;
+    margin-left: 8px;
+    transition: transform .15s ease;
+}
+
+.semester[open]>summary::after {
+    transform: rotate(90deg)
+}
+
+.semester>summary h3 {
+    margin: 0;
+    flex-grow: 1;
+    font: 700 1rem/1.2 system-ui;
+    color: hsl(var(--ink-2));
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+/* Wrapper for semester content to provide inner padding */
+.semester-content {
+    padding: 0 14px 12px;
+}
+
+
+/* -----------------------------------------
+   Collapsible module (<details>)
+----------------------------------------- */
+.module {
+    border: 1px solid hsl(var(--line));
+    border-radius: var(--r);
+    background: hsl(var(--card));
+    margin: 8px 0;
+    overflow: clip;
+}
+
+/* Summary row */
+.module>summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    position: relative;
+    border-left: 5px solid var(--accent, hsl(var(--psy)));
+}
+
+.module>summary::-webkit-details-marker {
+    display: none
+}
+
+.module>summary::after {
+    content: "▸";
+    color: var(--accent, hsl(var(--ink-2)));
+    font-weight: 800;
+    transition: transform .15s ease;
+}
+
+.module[open]>summary::after {
+    transform: rotate(90deg)
+}
+
+.title {
+    font-weight: 700;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Meta tags (badges) */
+.meta {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: wrap;
+    color: hsl(var(--ink-2));
+    font-size: .85rem;
+    justify-content: flex-end;
+}
+
+.meta .tag {
+    display: inline-block;
+    font-size: .7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: hsl(var(--line));
+}
+
+/* Customised badge colors */
+.meta .tag.compulsory {
+    background: hsl(210 50% 95%);
+    color: hsl(210 60% 30%);
+}
+
+.meta .tag.optional {
+    background: hsl(45 50% 95%);
+    color: hsl(35 60% 30%);
+}
+
+.meta .tag.all-year {
+    background: hsl(130 35% 95%);
+    color: hsl(130 35% 30%);
+}
+
+.meta .tag.semester {
+    background: hsl(280 30% 95%);
+    color: hsl(280 30% 30%);
+}
+
+/* Body content */
+.body {
+    padding: 0 14px 12px;
+    color: hsl(var(--ink-2));
+    border-top: 1px dashed hsl(var(--line));
+}
+
+/* Hover/focus affordances */
+.module>summary:hover {
+    background: hsl(var(--line) / .5);
+}
+
+:is(button, [href], input, select, textarea):focus {
     outline: none;
-    font-size: 16px;
-    transition: background-color 0.3s;
+    box-shadow: 0 0 0 4px hsl(var(--ring));
 }
 
-.collapsible.active {
-    background-color: var(--hover);
-    color:var(--charcoal);
-}
-
-/* Module content */
-.module-content {
-    padding: 10px;
-    display: none;
-    background-color: var(--background);
-    border-left: 2px solid var(--secondary);
-    border-right: 2px solid var(--secondary);
-    border-bottom: 2px solid var(--secondary);
-}
-
-.gap{
-    margin-bottom: 10px;
-}
-
-/* Style for the BPS logo */
-.bps-logo {
-    display: block; /* Centers the image horizontally */
-    margin: 5px auto; /* Adds space around the image and centers it */
-    max-width: 40%; /* Limits the width to keep it proportional */
-    height: auto; /* Maintains aspect ratio */
-    border-radius: 8px; /* Rounds the corners slightly */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
-    transition: transform 0.3s, box-shadow 0.3s; /* Adds smooth transitions */
-}
-
-/* Hover effect for the logo */
-.bps-logo:hover {
-    transform: scale(1.05); /* Slightly scales up the image */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Intensifies the shadow on hover */
-}
-
-.programme-buttons{
-    display: flex ;
-}
-
-/* Style for the back button */
-.back-button {
-    display: block; /* Makes it a block-level element to center it */
-    margin: 20px auto; /* Centers the button horizontally and adds vertical space */
-    padding: 10px 20px; /* Adds padding for a comfortable button size */
-    background-color: var(--primary); /* Matches the primary color used in other buttons */
-    color: var(--secondary); /* Text color to match other buttons */
-    border: none; /* Removes default border */
-    border-radius: 5px; /* Adds rounded corners */
-    font-size: 16px; /* Ensures text size matches other buttons */
-    cursor: pointer; /* Adds pointer cursor for better UX */
-    transition: background-color 0.3s, transform 0.2s; /* Smooth transition effects */
-    text-align: center; /* Centers the text within the button */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
-
-/* Hover effect for the back button */
-.back-button:hover {
-    background-color: var(--hover); /* Change to the hover color */
-    transform: scale(1.05); /* Slightly enlarges the button on hover */
-}
-
-/* Active effect for the back button */
-.back-button:active {
-    background-color: var(--charcoal); /* Darker color when the button is active */
-    transform: scale(0.98); /* Slightly shrinks the button on click */
-}
-.shared-module {
-    color: #2D9CDB; /* Blue color for shared modules */
-    font-size: 0.9em;
-    margin-left: 10px;
-}
-
-.unique-module {
-    color: #27AE60; /* Green color for unique modules */
-    font-size: 0.9em;
-    margin-left: 10px;
+/* -----------------------------------------
+   Footer (Static Text)
+----------------------------------------- */
+footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    background: hsl(var(--card));
+    border-top: 1px solid hsl(var(--line));
+    padding: var(--sp2) var(--sp3);
+    text-align: center;
+    color: hsl(var(--ink-2));
+    font-size: 0.9rem;
 }
