@@ -498,11 +498,23 @@ function renderProfiles() {
 }
 
 /* ---------- Back to Top Button Logic ---------- */
+
+function closeAllCollapsibles() {
+    // Target all <details> elements for modules and semesters
+    const collapsibles = document.querySelectorAll('details'); 
+    
+    collapsibles.forEach(detail => {
+        // Only set 'open' to false if it's currently open
+        if (detail.open) {
+            detail.open = false;
+        }
+    });
+}
 function mountBackToTop() {
     const button = $("#back-to-top");
     if (!button) return;
 
-    // Show/hide button based on scroll position
+    // Show/hide button based on scroll position (existing logic)
     const toggleVisibility = () => {
         if (window.scrollY > 200) {
             button.classList.add("show");
@@ -511,7 +523,7 @@ function mountBackToTop() {
         }
     };
 
-    // Scroll to top with smooth animation
+    // Scroll to top with smooth animation (existing logic)
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -521,10 +533,17 @@ function mountBackToTop() {
 
     // Attach event listeners
     window.addEventListener("scroll", toggleVisibility);
-    button.addEventListener("click", scrollToTop);
+    
+    button.addEventListener("click", () => {
+        // 1. Scroll to the top
+        scrollToTop();
+        
+        // 2. >> NEW LOGIC: Close all module and semester collapsibles
+        closeAllCollapsibles();
+    });
 
     // Initial check in case page loads partway down
-    toggleVisibility(); 
+    toggleVisibility();
 }
 
 /* ---------- Boot ---------- */
