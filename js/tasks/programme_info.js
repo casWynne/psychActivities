@@ -292,7 +292,7 @@ function moduleEl(m) {
   if (m.assessments?.length)
     parts.push(`<em>Assessment:</em> ${m.assessments.join(", ")}`);
   if (m.tl_methods?.length)
-    parts.push(`<em>T&L:</em> ${m.tl_methods.join(", ")}`);
+    parts.push(`<em>Contact Time:</em> ${m.tl_methods.join(", ")}`);
   body.innerHTML = parts.join("<br/>");
   det.appendChild(body);
 
@@ -532,3 +532,4 @@ function mountBackToTop() {
   renderAll();
   mountBackToTop();
 })();
+
