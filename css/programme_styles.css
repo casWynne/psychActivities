@@ -99,6 +99,10 @@ header {
     text-align: center;
 }
 
+h1 {
+    margin: auto;
+}
+
 .middle-text {
     max-width: var(--max);
     margin: 0 auto;
@@ -491,6 +495,66 @@ header {
     transform: rotate(90deg)
 }
 
+/* =================================================================
+   New Styling Rules for Compulsory Modules (programme_styles.css)
+   ================================================================= */
+
+/* Define generic module styling (assuming the module element is a <details> tag with class .module) */
+.module {
+    /* Using the accent variables for background/border which are set in the [data-pathway] block */
+    --module-bg: var(--accent-light, hsl(var(--card)));
+    --module-border: var(--accent-dark, hsl(var(--line)));
+
+    margin: var(--sp1) 0;
+    padding: var(--sp2);
+    border-radius: var(--r);
+    border: 1px solid var(--module-border);
+    background: var(--module-bg);
+    transition: all .2s ease;
+    box-shadow: 0 1px 3px -1px var(--module-border);
+}
+
+/* =========================================
+   NEW: Compulsory Module Neutral Styling
+   ========================================= */
+
+/* 1. Override the module's accent variable with a neutral color */
+.module--compulsory {
+    /* Set the dynamic accent variable to a neutral, dark gray color */
+    /* This overrides the pathway-specific color for the left border */
+    --accent: hsl(var(--ink-2)); 
+    
+    /* Ensure no pathway light background is picked up (though default is neutral) */
+    background: hsl(var(--card)); 
+}
+
+/* 2. Style the Compulsory tag added to the header */
+.compulsory-header-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    margin-left: 10px;
+    border-radius: 4px;
+    /* Use a light-gray, neutral background */
+    background: hsl(var(--line)); 
+    color: hsl(var(--ink-2));
+    border: 1px solid hsl(var(--line));
+    align-self: center;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+/* Dark mode adjustment for the tag background */
+@media (prefers-color-scheme: dark) {
+    .compulsory-header-tag {
+        background: hsl(220 10% 20%);
+        border-color: hsl(220 10% 20%);
+        color: hsl(var(--ink));
+    }
+}
+
 .title {
     font-weight: 700;
     display: flex;
@@ -569,7 +633,7 @@ footer {
     z-index: 10;
     background: hsl(var(--card));
     border-top: 1px solid hsl(var(--line));
-    padding: var(--sp2) var(--sp3);
+    /* padding: var(--sp2) var(--sp3); */
     text-align: center;
     color: hsl(var(--ink-2));
     font-size: 0.9rem;
@@ -580,11 +644,11 @@ footer {
 ----------------------------------------- */
 #back-to-top {
     position: fixed;
-    bottom: 30px;
+    bottom: 50px;
     right: 30px;
     z-index: 1000;
-    padding: 12px 18px;
-    font-size: 1.2rem;
+    padding: 18px 28px;
+    font-size: 2rem;
     font-weight: 700;
     border: none;
     border-radius: 50px;
