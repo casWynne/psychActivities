@@ -422,8 +422,8 @@ function renderProfiles() {
   host.innerHTML = ''; // Clear everything to rebuild
 
   // 1. Add the main header for the profiles
-  const sectionHeader = document.createElement('h2');
-  sectionHeader.textContent = 'Choose Your Path'; // Add your desired header text here
+  const sectionHeader = document.createElement('h3');
+  sectionHeader.textContent = 'Your degree, your pathway... which one will you take?'; // Add your desired header text here
   host.appendChild(sectionHeader);
 
   // 2. Ensure the card container wrapper is present
@@ -508,4 +508,5 @@ function mountBackToTop() {
   renderAll();
   mountBackToTop();
 })();
+
 
