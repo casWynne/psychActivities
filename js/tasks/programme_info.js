@@ -261,17 +261,9 @@ function moduleEl(m) {
   title.className = "title";
   title.innerHTML = m.title; // Change from .textContent to .innerHTML to allow the tag
   
-  // >> NEW LOGIC: Add a highly visible tag next to the title
-  // if (m.isCompulsory) {
-  //     title.innerHTML += '<span class="compulsory-header-tag">COMPULSORY</span>';
-  // }
-
   const meta = document.createElement("span");
   meta.className = "meta";
-  // ... rest of the original function remains the same ...
-  // ... the existing tags (t1, t2) will still render ...
-
-  // ... (The rest of the function continues as before) ...
+ 
   const t1 = document.createElement("span");
   t1.className = "tag " + (m.isCompulsory ? "compulsory" : "optional");
   t1.textContent = m.isCompulsory ? "Compulsory" : "Optional";
@@ -280,6 +272,18 @@ function moduleEl(m) {
   t2.className = "tag " + (m.duration === "all-year" ? "all-year" : "semester");
   t2.textContent = m.duration === "all-year" ? "All year" : "Semester";
   
+  if (!m.isCompulsory && m.pathways && m.pathways.length > 0) {
+      const pathwayName = m.pathways[0].toUpperCase(); // Get the primary pathway name
+      
+      const t3 = document.createElement("span");
+      t3.className = "tag module-pathway-tag"; 
+      t3.textContent = pathwayName;
+      
+      meta.append(t1, t2, t3); // Append all three tags
+  } else {
+      meta.append(t1, t2); // Append only the existing two tags
+  }
+
   meta.append(t1, t2);
   summary.append(title, meta);
   det.appendChild(summary);
@@ -532,4 +536,3 @@ function mountBackToTop() {
   renderAll();
   mountBackToTop();
 })();
-
