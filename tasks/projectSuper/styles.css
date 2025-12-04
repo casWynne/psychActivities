@@ -7,20 +7,34 @@
 }
 
 :root {
-  --bg: #ffffff;
-  --bg-alt: #0a516d;
-  --bg-alt-light: #14789c;
-  --accent: #3fbf9c;
-  --accent-soft: #e3f6f1;
-  --text-main: #12313f;
-  --text-soft: #3e5b68;
-  --chip-bg: #0e6687;
-  --chip-border: #0e7aa3;
-  --chip-text: #ffffff;
+  --bg: #FAFAFA;
+
+  /* Your pastel palette */
+  --accent-main: #F2BBBB;   /* primary accent (buttons, chips) */
+  --accent-soft: #F2D0E9;   /* lavender soft accent (header, hovers) */
+  --accent-mint: #ACF2DE;   /* mint highlight (toolbar background) */
+
+  --card-bg: #F2E0DC;       /* peachy cream card background */
+  --card-border: #e6ccc9;
+
+  --text-main: #0D0D0D;
+  --text-soft: #444;
+
+  /* Derived helpers */
+  --brand-dark: var(--accent-soft);  /* header background */
+  --bg-alt: var(--card-bg);          /* generic “card” background */
+  --bg-alt-light: #f7e6e0;           /* slightly lighter than card-bg */
+  --accent: var(--accent-main);
   --danger: #e54b4b;
+
+  /* Chips */
+  --chip-bg: var(--accent-main);
+  --chip-border: var(--accent-main);
+  --chip-text: #ffffff;
+
   --radius-lg: 9999px;
   --radius-card: 14px;
-  --shadow-soft: 0 4px 10px rgba(0, 0, 0, 0.15);
+  --shadow-soft: 0 4px 10px rgba(0, 0, 0, 0.12);
   --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
@@ -38,8 +52,8 @@ body {
 
 .site-header {
   padding: 1.5rem 1.25rem 0.75rem;
-  background: var(--bg-alt);
-  color: #f7fbff;
+  background: var(--brand-dark);
+  color: var(--text-main);
 }
 
 .site-header h1 {
@@ -50,7 +64,7 @@ body {
 .site-header .tagline {
   margin: 0;
   font-size: 0.9rem;
-  color: #d6edf9;
+  color: var(--text-soft);
 }
 
 .site-main {
@@ -73,7 +87,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  background: var(--bg-alt);
+  background: var(--accent-mint);
   padding: 0.75rem;
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-soft);
@@ -90,36 +104,29 @@ body {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #d0ecf9;
+  color: var(--text-soft);
+  opacity: 0.8;
   margin-bottom: 0.15rem;
 }
 
-.toolbar input[type="search"] {
-  border-radius: 999px;
-  border: 1px solid #0b4256;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.9rem;
-  outline: none;
-}
-
-.toolbar input[type="search"]:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(63, 191, 156, 0.4);
-}
-
+.toolbar input[type="search"],
 .toolbar select {
   border-radius: 999px;
-  border: 1px solid #0b4256;
+  border: 1px solid var(--card-border);
   padding: 0.5rem 0.75rem;
   font-size: 0.9rem;
   background: #ffffff;
   outline: none;
-  appearance: none;              /* smoother look on mobile */
 }
 
+.toolbar input[type="search"]:focus,
 .toolbar select:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(63, 191, 156, 0.4);
+  box-shadow: 0 0 0 2px rgba(242, 187, 187, 0.6); /* soft accent-main ring */
+}
+
+.toolbar select {
+  appearance: none; /* smoother look on mobile */
 }
 
 /* optional: small tweak for very small screens */
@@ -129,7 +136,6 @@ body {
     font-size: 0.85rem;
   }
 }
-
 
 .clear-btn {
   align-self: flex-end;
@@ -173,7 +179,7 @@ body {
 /* Whole card is clickable (except email button) */
 .profile-card {
   background: var(--bg-alt);
-  color: #f7fbff;
+  color: var(--text-main);
   border-radius: var(--radius-card);
   padding: 0.6rem 0.75rem;
   box-shadow: var(--shadow-soft);
@@ -184,7 +190,7 @@ body {
 .profile-card:focus-within,
 .profile-card:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
 }
 
 .profile-header {
@@ -194,17 +200,17 @@ body {
   gap: 0.6rem;
 }
 
-/* Avatar circle (can be image or emoji/initials) */
+/* Avatar circle */
 .profile-avatar {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 2px solid #f7fbff;
+  border: 2px solid var(--accent-main);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.7rem;
-  background: #0b3a4e;
+  background: #ffffff;
   flex-shrink: 0;
   overflow: hidden;
 }
@@ -257,11 +263,11 @@ body {
 }
 
 .email-btn {
-  border: 2px solid #f7fbff;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  background: transparent;
-  color: #f7fbff;
+  border: none;
+  background: var(--accent-main);
+  color: #ffffff;
   font-size: 0.75rem;
   cursor: pointer;
 }
@@ -272,25 +278,48 @@ body {
 
 .email-btn:hover,
 .email-btn:focus-visible {
-  background: #f7fbff;
-  color: var(--bg-alt);
+  background: var(--accent-soft);
+  color: var(--text-main);
 }
 
-/* Expanded details area */
 .profile-details {
-  margin-top: 0.6rem;
+  /* visual styling (base) */
   border-radius: 10px;
-  background: #f9feff;
+  background: #ffffff;
   color: var(--text-main);
-  padding: 0.75rem 0.85rem;
   font-size: 0.9rem;
-  border: 1px solid #d5e5ee;
-  display: none;
+  border: 1px solid var(--card-border);
+
+  /* animation + collapsed defaults */
+  margin-top: 0;                 /* no extra space when closed */
+  padding: 0 0.85rem;            /* no vertical padding when closed */
+  border-width: 0;               /* hide border when closed */
+
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-4px);
+  transition:
+    max-height 0.25s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    padding-top 0.2s ease,
+    padding-bottom 0.2s ease,
+    margin-top 0.2s ease,
+    border-width 0.2s ease;
 }
 
 .profile-card.open .profile-details {
-  display: block;
+  margin-top: 0.6rem;
+  padding: 0.75rem 0.85rem;      /* full padding only when open */
+  border-width: 1px;
+
+  max-height: 1000px;            /* big enough for typical content */
+  opacity: 1;
+  transform: translateY(0);
 }
+
+
 
 .profile-details h3 {
   margin-top: 0;
@@ -332,9 +361,16 @@ body {
   align-items: center;
   gap: 0.3rem;
 }
-
 .detail-btn-icon {
   font-size: 1.1rem;
+}
+.detail-btn:hover,
+.detail-btn:focus-visible {
+  background: var(--accent-main);
+  color: #ffffff;
+  border-color: var(--accent-main);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 /* ---- Helper states ------------------------------------------------------- */
@@ -349,9 +385,10 @@ body {
 .empty-message {
   padding: 1rem;
   border-radius: 8px;
-  background: #f3f7fa;
-  color: var(--text-soft);
+  background: var(--accent-soft);
+  color: var(--text-main);
 }
+
 /* ===== Mobile fine-tuning ===== */
 @media (max-width: 480px) {
   /* Slightly smaller base font on narrow screens */
@@ -372,7 +409,7 @@ body {
   }
 
   .toolbar {
-    border-radius: 24px;      /* less huge pill */
+    border-radius: 24px;
     padding: 0.75rem;
     gap: 0.5rem;
   }
@@ -420,5 +457,10 @@ body {
 
   .site-footer {
     padding: 0.75rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-details {
+    transition: none;
   }
 }
