@@ -30,18 +30,19 @@
     },
     {
       "id": "staff-2",
-      "name": "Dr Staff Name 2",
-      "email": "staff2@university.ac.uk",
+      "name": "Dr Tim Vestner",
+      "email": "t.vestner@leedstrinity.ac.uk",
       "avatar": "",
-      "keywords": ["Maths anxiety", "Reading", "Attention"],
+      "keywords": ["Social Cognition", "Anxiety", "Stuttering", "Language Disorders", "Autism", "Visual Disorders"],
       "topics": [
         {
-          "title": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-          "description": "BananaLorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsa natus maxime error. Amet distinctio ullam et inventore maiores facilis omnis repellat vel doloribus, accusantium tenetur! Tempora odio eveniet atque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsa natus maxime error. Amet distinctio ullam et inventore maiores facilis omnis repellat vel doloribus, accusantium tenetur! Tempora odio eveniet atque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsa natus maxime error. Amet distinctio ullam et inventore maiores facilis omnis repellat vel doloribus, accusantium tenetur! Tempora odio eveniet atque.",
+          "title": "Attitudes towards stuttering and related language and speech disorders.",
+          "description": "People who stutter (PWS) are experiencing everyday difficulties with not just communication, but also social relationships. Consequently, PWS are more prone to anxiety and social phobia, which in large parts is caused by social attitudes towards stuttering. General attitudes towards stuttering are well studied but much is unknown about specific population groups, mechanisms, accommodations, and effects on social relationships. Most research in this area uses existing questionnaires but there is also room for qualitative explorations. This topic can extend to other language or speech disorders, and even to healthy but atypical presentations, such as accents.",
           "ideas": [
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsa natus maxime error. Amet distinctio ullam et inventore maiores facilis omnis repellat vel doloribus, accusantium tenetur! Tempora odio eveniet atque.",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsa natus maxime error. Amet distinctio ullam et inventore maiores facilis omnis repellat vel doloribus, accusantium tenetur! Tempora odio eveniet atque.",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsa natus maxime error. Amet distinctio ullam et inventore maiores facilis omnis repellat vel doloribus, accusantium tenetur! Tempora odio eveniet atque."
+            "Attitudes towards stuttering in minority populations, which could encompass either qualitative or quantitative approaches. Past students have, for example, successfully investigated attitudes towards stuttering in British-Pakistani populations, with their projects being currently under review for publication. This could be extended to other populations.",
+            "Attitudes towards stuttering in an intersectional context: Are people from certain (e.g. minoritised) groups more vulnerable to stigma resulting from stuttering?",
+            "Correlates of negative attitudes: Are people who have biases towards stuttering also more likely to have biases towards other things (e.g. dyslexia)? Are they more likely to have other characteristics (e.g. older, less educated etc.)? ",
+            "You can also work directly with people who stutter, but you would need to think of a good way to get enough participants who stutter. In this case, you could directly investigate self-stigma, anxiety, social phobia, or factors affecting social relationships. "
           ]
         }
       ]
