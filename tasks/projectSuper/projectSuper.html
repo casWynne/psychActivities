@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Dissertation Research Projects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>Research Projects Directory</h1>
+        <p class="tagline">
+            Explore staff projects and find inspiration for your dissertation.
+        </p>
+    </header>
+
+    <main class="site-main">
+        <!-- Search / filter bar -->
+        <section class="toolbar" aria-label="Search and filter staff profiles">
+            <label class="field">
+                <span class="field-label">Search</span>
+                <input id="searchInput" type="search" placeholder="Search name, topic, description…"
+                    autocomplete="off" />
+            </label>
+
+            <label class="field">
+                <span class="field-label">Filter by keyword</span>
+                <select id="keywordSelect">
+                    <option value="">All keywords</option>
+                    <!-- Options will be added via JS -->
+                </select>
+            </label>
+
+            <button id="clearFiltersBtn" class="clear-btn" type="button" aria-label="Clear search and filters">
+                ×
+            </button>
+        </section>
+
+        <!-- Profiles injected by JS -->
+        <section id="profilesList" class="profiles-list" aria-live="polite">
+            <!-- Cards go here -->
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>
+            Questions about a project? Click “Email me” on a profile to contact the
+            supervisor.
+        </p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

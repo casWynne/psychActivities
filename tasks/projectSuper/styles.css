@@ -1,0 +1,424 @@
+/* ---- Base ---------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #ffffff;
+  --bg-alt: #0a516d;
+  --bg-alt-light: #14789c;
+  --accent: #3fbf9c;
+  --accent-soft: #e3f6f1;
+  --text-main: #12313f;
+  --text-soft: #3e5b68;
+  --chip-bg: #0e6687;
+  --chip-border: #0e7aa3;
+  --chip-text: #ffffff;
+  --danger: #e54b4b;
+  --radius-lg: 9999px;
+  --radius-card: 14px;
+  --shadow-soft: 0 4px 10px rgba(0, 0, 0, 0.15);
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: var(--bg);
+  color: var(--text-main);
+}
+
+/* ---- Layout -------------------------------------------------------------- */
+
+.site-header {
+  padding: 1.5rem 1.25rem 0.75rem;
+  background: var(--bg-alt);
+  color: #f7fbff;
+}
+
+.site-header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.4rem;
+}
+
+.site-header .tagline {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #d6edf9;
+}
+
+.site-main {
+  padding: 1rem 1.25rem 2rem;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.site-footer {
+  padding: 0.75rem 1.25rem 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ---- Toolbar ------------------------------------------------------------- */
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--bg-alt);
+  padding: 0.75rem;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.field-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #d0ecf9;
+  margin-bottom: 0.15rem;
+}
+
+.toolbar input[type="search"] {
+  border-radius: 999px;
+  border: 1px solid #0b4256;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.toolbar input[type="search"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(63, 191, 156, 0.4);
+}
+
+.toolbar select {
+  border-radius: 999px;
+  border: 1px solid #0b4256;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  background: #ffffff;
+  outline: none;
+  appearance: none;              /* smoother look on mobile */
+}
+
+.toolbar select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(63, 191, 156, 0.4);
+}
+
+/* optional: small tweak for very small screens */
+@media (max-width: 480px) {
+  .toolbar select {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.85rem;
+  }
+}
+
+
+.clear-btn {
+  align-self: flex-end;
+  border-radius: var(--radius-lg);
+  border: none;
+  padding: 0.4rem 0.9rem;
+  background: var(--danger);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.25rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+.clear-btn:hover,
+.clear-btn:focus-visible {
+  filter: brightness(1.1);
+}
+
+/* On wider screens, put toolbar in a row */
+@media (min-width: 720px) {
+  .toolbar {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .clear-btn {
+    margin-top: 1.15rem;
+  }
+}
+
+/* ---- Profiles ------------------------------------------------------------ */
+
+.profiles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* Whole card is clickable (except email button) */
+.profile-card {
+  background: var(--bg-alt);
+  color: #f7fbff;
+  border-radius: var(--radius-card);
+  padding: 0.6rem 0.75rem;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: transform 0.08s ease-out, box-shadow 0.08s ease-out;
+}
+
+.profile-card:focus-within,
+.profile-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+}
+
+.profile-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Avatar circle (can be image or emoji/initials) */
+.profile-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #f7fbff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  background: #0b3a4e;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Name + keywords */
+.profile-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.profile-name {
+  font-weight: 600;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Keyword chips */
+.keyword-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.keyword-chip {
+  border-radius: 999px;
+  border: 1px solid var(--chip-border);
+  padding: 0.15rem 0.5rem;
+  font-size: 0.7rem;
+  background: var(--chip-bg);
+  color: var(--chip-text);
+}
+
+/* Email button */
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  flex-shrink: 0;
+}
+
+.email-btn {
+  border: 2px solid #f7fbff;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  background: transparent;
+  color: #f7fbff;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.email-btn span {
+  margin-left: 0.2rem;
+}
+
+.email-btn:hover,
+.email-btn:focus-visible {
+  background: #f7fbff;
+  color: var(--bg-alt);
+}
+
+/* Expanded details area */
+.profile-details {
+  margin-top: 0.6rem;
+  border-radius: 10px;
+  background: #f9feff;
+  color: var(--text-main);
+  padding: 0.75rem 0.85rem;
+  font-size: 0.9rem;
+  border: 1px solid #d5e5ee;
+  display: none;
+}
+
+.profile-card.open .profile-details {
+  display: block;
+}
+
+.profile-details h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.profile-details p {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  color: var(--text-soft);
+}
+
+.profile-details ul {
+  margin: 0 0 0.6rem 1.1rem;
+  padding: 0;
+}
+
+.profile-details li {
+  margin-bottom: 0.35rem;
+}
+
+/* Detail footer buttons (e.g., “Email me”, “Sign up”) */
+.profile-detail-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+}
+
+.detail-btn {
+  border-radius: 999px;
+  border: 1px solid var(--bg-alt-light);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.75rem;
+  background: var(--accent-soft);
+  color: var(--text-main);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.detail-btn-icon {
+  font-size: 1.1rem;
+}
+
+/* ---- Helper states ------------------------------------------------------- */
+
+.error-message {
+  padding: 1rem;
+  border-radius: 8px;
+  background: #ffe3e3;
+  color: #7f1515;
+}
+
+.empty-message {
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f3f7fa;
+  color: var(--text-soft);
+}
+/* ===== Mobile fine-tuning ===== */
+@media (max-width: 480px) {
+  /* Slightly smaller base font on narrow screens */
+  html {
+    font-size: 15px;
+  }
+
+  .site-header {
+    padding: 1.25rem 1rem 0.5rem;
+  }
+
+  .site-header h1 {
+    font-size: 1.25rem;
+  }
+
+  .site-main {
+    padding: 0.75rem 0.75rem 1.5rem;
+  }
+
+  .toolbar {
+    border-radius: 24px;      /* less huge pill */
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .toolbar input[type="search"] {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  .clear-btn {
+    margin-top: 0.4rem;
+    padding: 0.35rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .profile-card {
+    padding: 0.55rem 0.65rem;
+    border-radius: 16px;
+  }
+
+  .profile-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+  }
+
+  .profile-name {
+    font-size: 0.95rem;
+  }
+
+  .keyword-chip {
+    font-size: 0.65rem;
+    padding: 0.12rem 0.45rem;
+  }
+
+  .email-btn {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  .profile-details {
+    font-size: 0.85rem;
+    padding: 0.7rem 0.75rem;
+  }
+
+  .site-footer {
+    padding: 0.75rem;
+  }
+}
