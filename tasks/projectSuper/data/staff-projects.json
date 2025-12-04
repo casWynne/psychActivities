@@ -4,12 +4,21 @@
       "id": "staff-1",
       "name": "Dr Staff Name 1",
       "email": "staff1@university.ac.uk",
-      "avatar": "",
+      "avatar": "images/fayme.png",
       "keywords": ["Stuttering", "Language", "Speech disorders", "Attitudes"],
       "topics": [
         {
           "title": "specific topic title 1 - cheese",
           "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsa natus maxime error. Amet distinctio ullam et inventore maiores facilis omnis repellat vel doloribus, accusantium tenetur! Tempora odio eveniet atque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsa natus maxime error. Amet distinctio ullam et inventore maiores facilis omnis repellat vel doloribus, accusantium tenetur! Tempora odio eveniet atque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsa natus maxime error. Amet distinctio ullam et inventore maiores facilis omnis repellat vel doloribus, accusantium tenetur! Tempora odio eveniet atque.",
+          "ideas": [
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsa natus maxime error. Amet distinctio ullam et inventore maiores facilis omnis repellat vel doloribus, accusantium tenetur! Tempora odio eveniet atque.",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsa natus maxime error. Amet distinctio ullam et inventore maiores facilis omnis repellat vel doloribus, accusantium tenetur! Tempora odio eveniet atque.",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsa natus maxime error. Amet distinctio ullam et inventore maiores facilis omnis repellat vel doloribus, accusantium tenetur! Tempora odio eveniet atque."
+          ]
+        },
+        {
+          "title": "specific topic title 2 - ham",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsa natus maxime",
           "ideas": [
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsa natus maxime error. Amet distinctio ullam et inventore maiores facilis omnis repellat vel doloribus, accusantium tenetur! Tempora odio eveniet atque.",
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsa natus maxime error. Amet distinctio ullam et inventore maiores facilis omnis repellat vel doloribus, accusantium tenetur! Tempora odio eveniet atque.",
