@@ -53,8 +53,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 ? profile.avatar
                 : "images/default-avatar.jpg";
 
-            const avatarInner = `<img src="${avatarSrc}" alt="Profile picture of ${profile.name}" />`;
+            const avatarPosition = profile.avatarPosition || "50% 50%";
 
+            const avatarInner = `
+                <img
+                    src="${avatarSrc}"
+                    alt="Profile picture of ${profile.name}"
+                    style="
+                    width:100%;
+                    height:100%;
+                    object-fit:cover;
+                    object-position:${avatarPosition};
+                    "
+                    onerror="this.onerror=null; this.src='images/default-avatar.jpg';"
+                />
+                `;
 
             const keywordsHtml = (profile.keywords || [])
                 .map(
@@ -69,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         .map((idea) => `<li>${idea}</li>`)
                         .join("");
 
-                      return `
+                    return `
                 <section class="profile-topic">
                   <h3>${i + 1}. ${topic.title}</h3>
                   <p>${topic.description}</p>
@@ -81,8 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 </section>
                     ${i < arr.length - 1 ? "<hr class='topic-divider'>" : ""}
                 `;
-                    })
-                    .join("");
+                })
+                .join("");
 
             card.innerHTML = `
         <div class="profile-header">
