@@ -5,6 +5,7 @@
       "name": "Dr Staff Name 1",
       "email": "staff1@university.ac.uk",
       "avatar": "images/fayme.png",
+      "avatarPosition": "50% 5%",
       "keywords": ["Stuttering", "Language", "Speech disorders", "Attitudes"],
       "topics": [
         {
