@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("searchInput");
     const keywordSelect = document.getElementById("keywordSelect");
     const clearBtn = document.getElementById("clearFiltersBtn");
+    const interestFormUrl = "https://forms.office.com/e/UT6nby4S1n";
 
     let allProfiles = [];
 
@@ -63,24 +64,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 .join("");
 
             const topicsHtml = (profile.topics || [])
-                .map((topic, i) => {
+                .map((topic, i, arr) => {
                     const ideas = (topic.ideas || [])
                         .map((idea) => `<li>${idea}</li>`)
                         .join("");
 
-                    return `
-            <section class="profile-topic">
-              <h3>${i + 1}. ${topic.title}</h3>
-              <p>${topic.description}</p>
-              ${ideas
+                      return `
+                <section class="profile-topic">
+                  <h3>${i + 1}. ${topic.title}</h3>
+                  <p>${topic.description}</p>
+                  ${ideas
                             ? `<p><strong>Within this topic, you could investigate:</strong></p>
-                     <ul>${ideas}</ul>`
+                       <ul>${ideas}</ul>`
                             : ""
                         }
-            </section>
-          `;
-                })
-                .join("");
+                </section>
+                    ${i < arr.length - 1 ? "<hr class='topic-divider'>" : ""}
+                `;
+                    })
+                    .join("");
 
             card.innerHTML = `
         <div class="profile-header">
@@ -110,17 +112,17 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="profile-details">
           ${topicsHtml || "<p>No project details have been added yet.</p>"}
 
-          <div class="profile-detail-footer">
-            <button class="detail-btn" type="button">
-              <span class="detail-btn-icon">❓</span>
-              Questions? Email me
-            </button>
-            <button class="detail-btn" type="button">
-              <span class="detail-btn-icon">👍</span>
-              Interested in this topic
-            </button>
-          </div>
+        <div class="profile-detail-footer">
+        <button class="detail-btn detail-btn-email" type="button">
+            <span class="detail-btn-icon">❓</span>
+            Questions? Email me
+        </button>
+        <button class="detail-btn detail-btn-interest" type="button">
+            <span class="detail-btn-icon">👍</span>
+            Interested in this topic
+        </button>
         </div>
+
       `;
 
             profilesList.appendChild(card);
@@ -155,37 +157,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function applyFilters() {
-  const term = searchInput.value.trim().toLowerCase();
-  const selectedKeyword = keywordSelect.value.trim().toLowerCase();
+        const term = searchInput.value.trim().toLowerCase();
+        const selectedKeyword = keywordSelect.value.trim().toLowerCase();
 
-  const filtered = allProfiles.filter((profile) => {
-    const topicsText = (profile.topics || [])
-      .map((t) => {
-        const ideasText = (t.ideas || []).join(" ");
-        return `${t.title} ${t.description} ${ideasText}`;
-      })
-      .join(" ");
+        const filtered = allProfiles.filter((profile) => {
+            const topicsText = (profile.topics || [])
+                .map((t) => {
+                    const ideasText = (t.ideas || []).join(" ");
+                    return `${t.title} ${t.description} ${ideasText}`;
+                })
+                .join(" ");
 
-    const allText =
-      [
-        profile.name,
-        (profile.keywords || []).join(" "),
-        topicsText
-      ]
-        .join(" ")
-        .toLowerCase() || "";
+            const allText =
+                [
+                    profile.name,
+                    (profile.keywords || []).join(" "),
+                    topicsText
+                ]
+                    .join(" ")
+                    .toLowerCase() || "";
 
-    const keywordText = (profile.keywords || []).join(" ").toLowerCase();
+            const keywordText = (profile.keywords || []).join(" ").toLowerCase();
 
-    const matchesSearch = !term || allText.includes(term);
-    const matchesKeyword =
-      !selectedKeyword || keywordText.includes(selectedKeyword);
+            const matchesSearch = !term || allText.includes(term);
+            const matchesKeyword =
+                !selectedKeyword || keywordText.includes(selectedKeyword);
 
-    return matchesSearch && matchesKeyword;
-  });
+            return matchesSearch && matchesKeyword;
+        });
 
-  renderProfiles(filtered);
-}
+        renderProfiles(filtered);
+    }
 
 
 
@@ -204,23 +206,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Use event delegation so re-rendering is safe
     profilesList.addEventListener("click", (event) => {
+        // Header "Email me" button
         const emailBtn = event.target.closest(".email-btn");
         if (emailBtn) {
-            // prevent card toggling
             event.stopPropagation();
             const email = emailBtn.getAttribute("data-email");
             if (email) {
-                window.location.href = `mailto:${email}`;
+                window.location.href = `mailto:${email}?subject=I%20am%20interested%20in%20your%20research%20project`;
             }
             return;
         }
 
-        const detailFooterEmail = event.target.closest(".detail-btn");
-        if (detailFooterEmail && detailFooterEmail.textContent.includes("Email")) {
+        // Footer "Interested in this topic" button → redirect to form
+        const interestBtn = event.target.closest(".detail-btn-interest");
+        if (interestBtn) {
+            event.stopPropagation();
+            window.open(interestFormUrl, "_blank");
+            // or: window.open(interestFormUrl, "_blank");
+            return;
+        }
+
+        // Footer "Questions? Email me" button
+        const footerEmailBtn = event.target.closest(".detail-btn-email");
+        if (footerEmailBtn) {
             event.stopPropagation();
             const card = event.target.closest(".profile-card");
             if (!card) return;
-            // pick up data-email from header button
             const headerEmailBtn = card.querySelector(".email-btn");
             const email = headerEmailBtn
                 ? headerEmailBtn.getAttribute("data-email")
@@ -231,6 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        // Anything else: toggle expand/collapse
         const card = event.target.closest(".profile-card");
         if (!card) return;
 
